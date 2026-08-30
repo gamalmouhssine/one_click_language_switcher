@@ -1,4 +1,4 @@
-# Quick Language Switcher
+# One-Click Language Switcher
 
 **Change your Odoo back-end language in one click, from the navigation bar.**
 
@@ -6,7 +6,7 @@
 ![Editions](https://img.shields.io/badge/editions-Community%20%2B%20Enterprise-00c4b4)
 ![Licence](https://img.shields.io/badge/licence-LGPL--3-blue)
 
-![Quick Language Switcher](static/description/banner.png)
+![One-Click Language Switcher](static/description/banner.png)
 
 ---
 
@@ -101,13 +101,13 @@ with only one there is nothing to switch to, so it hides itself.
 
 ## Installation
 
-1. Copy `quick_language_switcher` into your `addons_path`.
+1. Copy `one_click_language_switcher` into your `addons_path`.
 2. Restart Odoo.
-3. **Apps → Update Apps List**, then search for *Quick Language Switcher* and install.
+3. **Apps → Update Apps List**, then search for *One-Click Language Switcher* and install.
 
 ```bash
 ./odoo-bin -d my_db --addons-path=addons,/path/to/custom_addons \
-           -i quick_language_switcher --stop-after-init
+           -i one_click_language_switcher --stop-after-init
 ```
 
 > Adding or removing asset files in the manifest needs an Odoo **restart**, not
@@ -125,8 +125,8 @@ with only one there is nothing to switch to, so it hides itself.
 Two RPC endpoints on `res.users`, both acting **only** on the authenticated
 user:
 
-* `quick_language_get_available()` — lists active `res.lang` records.
-* `quick_language_set(lang_code)` — validates that the code is a string
+* `one_click_language_get_available()` — lists active `res.lang` records.
+* `one_click_language_set(lang_code)` — validates that the code is a string
   matching an existing, active and administrator-allowed language, then writes
   `lang` on `res.users.browse(self.env.uid)`.
 
@@ -144,8 +144,8 @@ single read of one configuration key.
 
 ```bash
 ./odoo-bin -d my_db --addons-path=addons,/path/to/custom_addons \
-           -i quick_language_switcher --test-enable \
-           --test-tags=/quick_language_switcher --stop-after-init
+           -i one_click_language_switcher --test-enable \
+           --test-tags=/one_click_language_switcher --stop-after-init
 ```
 
 23 backend tests cover the endpoints, the security boundary, the allow-list and
@@ -154,7 +154,7 @@ the uninstall cleanup.
 ## Support
 
 Issues and questions:
-<https://github.com/gamalmouhssine/quick_language_switcher/issues>
+<https://github.com/gamalmouhssine/one_click_language_switcher/issues>
 
 ## Licence
 

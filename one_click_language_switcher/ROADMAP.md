@@ -1,4 +1,4 @@
-# Quick Language Switcher — roadmap
+# One-Click Language Switcher — roadmap
 
 Status of every feature considered after v1.0.0. Each entry records what it is,
 why it is (or is not) worth building, and how it was verified.
@@ -32,13 +32,13 @@ providers (`Promise.all` in `command_palette.js`) are identical in 17.0, 18.0
 and 19.0, so this file is shared verbatim by the three packages.
 
 **Consequence.** The language list and the switch logic moved out of the OWL
-component into a small service (`quick_language_switcher` in the `services`
+component into a small service (`one_click_language_switcher` in the `services`
 registry), so the systray dropdown and the palette share one cached fetch
 instead of issuing two RPCs.
 
 ## 2. Administrator allow-list — done in 1.2.0
 
-Settings → General Settings → *Quick Language Switcher* lets an administrator
+Settings → General Settings → *One-Click Language Switcher* lets an administrator
 choose which of the installed languages the switcher offers. Empty selection
 (the default) means "offer them all", so behaviour is unchanged on upgrade.
 
@@ -47,8 +47,8 @@ installed for translation purposes but should only offer four to its users.
 It is what separates a utility from something worth publishing.
 
 **How.** `res.config.settings` writing an `ir.config_parameter`
-(`quick_language_switcher.allowed_lang_codes`), read back and applied inside
-`quick_language_get_available` *and* enforced in `quick_language_set` — the
+(`one_click_language_switcher.allowed_lang_codes`), read back and applied inside
+`one_click_language_get_available` *and* enforced in `one_click_language_set` — the
 restriction is a server-side rule, not a display filter, so it cannot be
 bypassed by crafting an RPC.
 
