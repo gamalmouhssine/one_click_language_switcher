@@ -33,7 +33,6 @@ class ResUsers(models.Model):
         return {code.strip() for code in param.split(",") if code.strip()}
 
     @api.model
-    @api.readonly
     def quick_language_get_available(self):
         """Return the languages the current user is allowed to switch to.
 

@@ -16,7 +16,7 @@ without going through Settings > Users > Preferences.
 * Works on Odoo Community and Odoo Enterprise, no Enterprise dependency.
 * Administrators may restrict which languages the switcher offers.
 """,
-    "version": "18.0.1.3.1",
+    "version": "17.0.1.3.1",
     "category": "Productivity",
     "author": "gamalmouhssine",
     "website": "https://github.com/gamalmouhssine/quick_language_switcher",

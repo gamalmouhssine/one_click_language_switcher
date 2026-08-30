@@ -1,6 +1,7 @@
+/** @odoo-module **/
+
 import { Component, onWillStart, useRef, useState } from "@odoo/owl";
 import { Dropdown } from "@web/core/dropdown/dropdown";
-import { DropdownGroup } from "@web/core/dropdown/dropdown_group";
 import { DropdownItem } from "@web/core/dropdown/dropdown_item";
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
@@ -19,7 +20,7 @@ const SEARCH_THRESHOLD = 10;
  */
 export class LanguageSwitcher extends Component {
     static template = "quick_language_switcher.LanguageSwitcher";
-    static components = { Dropdown, DropdownGroup, DropdownItem };
+    static components = { Dropdown, DropdownItem };
     static props = {};
 
     setup() {
@@ -83,13 +84,11 @@ export class LanguageSwitcher extends Component {
         this.state.search = ev.target.value;
     }
 
-    /**
-     * @param {boolean} isOpen
-     */
-    onDropdownStateChanged(isOpen) {
-        if (isOpen) {
-            this.state.search = "";
-            this.searchInputRef.el?.focus();
+    /** Called by the Dropdown once its menu is rendered and positioned. */
+    onDropdownOpened() {
+        this.state.search = "";
+        if (this.searchInputRef.el) {
+            this.searchInputRef.el.focus();
         }
     }
 
