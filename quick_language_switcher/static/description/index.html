@@ -1,13 +1,9 @@
-<section style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#3c3c3c;line-height:1.6;max-width:960px;margin:0 auto;padding:0 16px;">
+<section style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#3c3c3c;line-height:1.6;max-width:1000px;margin:0 auto;padding:0 16px;">
 
-  <div style="background:linear-gradient(135deg,#5b4caf 0%,#423685 100%);color:#ffffff;border-radius:12px;padding:48px 32px;text-align:center;">
-    <div style="font-size:56px;line-height:1;margin-bottom:12px;">&#127760;</div>
-    <h1 style="margin:0 0 12px;font-size:34px;font-weight:700;color:#ffffff;">Quick Language Switcher</h1>
-    <p style="margin:0;font-size:18px;opacity:.9;">Switch languages without opening Preferences.</p>
-  </div>
+  <img src="banner.png" alt="Quick Language Switcher" style="width:100%;height:auto;border-radius:12px;display:block;"/>
 
   <div style="margin:32px 0;padding:24px;border:1px solid #e4e4e4;border-radius:12px;background:#fafafa;">
-    <h2 style="margin:0 0 12px;font-size:22px;color:#2b2b2b;">One click instead of five</h2>
+    <h2 style="margin:0 0 12px;font-size:24px;color:#2b2b2b;">One click instead of five</h2>
     <p style="margin:0 0 12px;">
       Changing the interface language normally means opening
       <em>Settings &rarr; Users &amp; Companies &rarr; Users &rarr; Preferences &rarr; Language</em>,
@@ -15,98 +11,125 @@
       click it, pick a language, and the back end reloads fully translated.
     </p>
     <p style="margin:0;">
-      Everyone can do it &mdash; no administrator rights, no technical settings,
-      no access to the Users menu required.
+      Every internal user can do it &mdash; no administrator rights, no technical
+      settings, no access to the Users menu. And a user can only ever change
+      <strong>their own</strong> language.
     </p>
   </div>
 
-  <h2 style="font-size:22px;color:#2b2b2b;margin:32px 0 16px;">Main benefits</h2>
+  <h2 style="font-size:24px;color:#2b2b2b;margin:40px 0 12px;">The language menu</h2>
+  <p style="margin:0 0 16px;">
+    A globe in the systray shows the language you are on. Open it to see every
+    installed language, with the current one marked and pinned at the top.
+  </p>
+  <img src="screenshot_dropdown.png" alt="The language dropdown in the Odoo navbar"
+       style="width:100%;height:auto;border:1px solid #e4e4e4;border-radius:10px;display:block;"/>
+  <p style="font-size:14px;color:#777;margin:10px 0 0;">
+    Flags are derived from the locale code. Languages without a country &mdash;
+    Arabic (<code>ar_001</code>) above &mdash; fall back to a neutral globe, and the
+    language name is always shown.
+  </p>
+
+  <h2 style="font-size:24px;color:#2b2b2b;margin:40px 0 12px;">Or never touch the mouse</h2>
+  <p style="margin:0 0 16px;">
+    Press <strong>Ctrl</strong>+<strong>K</strong> and start typing a language
+    name. The switcher adds its own entries to Odoo's command palette, right
+    next to the built-in commands.
+  </p>
+  <img src="screenshot_command_palette.png" alt="Language entries in the Odoo command palette"
+       style="width:100%;height:auto;border:1px solid #e4e4e4;border-radius:10px;display:block;"/>
+
+  <h2 style="font-size:24px;color:#2b2b2b;margin:40px 0 16px;">Everything it does</h2>
   <table style="width:100%;border-collapse:separate;border-spacing:12px 12px;">
     <tr>
-      <td style="width:50%;vertical-align:top;padding:20px;border:1px solid #e4e4e4;border-radius:10px;background:#ffffff;">
-        <strong style="display:block;font-size:16px;color:#5b4caf;margin-bottom:6px;">Fast access</strong>
-        The selector sits in the systray, next to the company and user menus.
-        It is always one click away, on every screen.
+      <td style="width:50%;vertical-align:top;padding:20px;border:1px solid #e4e4e4;border-radius:10px;background:#fff;">
+        <strong style="display:block;font-size:16px;color:#5b4caf;margin-bottom:6px;">One-click switching</strong>
+        Pick a language and the web client reloads translated. No preferences
+        dialog, no save button, no administrator.
       </td>
-      <td style="width:50%;vertical-align:top;padding:20px;border:1px solid #e4e4e4;border-radius:10px;background:#ffffff;">
-        <strong style="display:block;font-size:16px;color:#5b4caf;margin-bottom:6px;">Active languages detected automatically</strong>
+      <td style="width:50%;vertical-align:top;padding:20px;border:1px solid #e4e4e4;border-radius:10px;background:#fff;">
+        <strong style="display:block;font-size:16px;color:#5b4caf;margin-bottom:6px;">Command palette</strong>
+        Ctrl+K then a language name. The few languages you actually use are
+        offered before you type anything.
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top;padding:20px;border:1px solid #e4e4e4;border-radius:10px;background:#fff;">
+        <strong style="display:block;font-size:16px;color:#5b4caf;margin-bottom:6px;">You choose what is offered</strong>
+        General Settings lets an administrator restrict the list to the
+        languages your teams actually need. Leave it empty to offer them all.
+      </td>
+      <td style="vertical-align:top;padding:20px;border:1px solid #e4e4e4;border-radius:10px;background:#fff;">
+        <strong style="display:block;font-size:16px;color:#5b4caf;margin-bottom:6px;">Remembers your habits</strong>
+        The three languages you switch to most recently are pinned near the
+        top, so bilingual users never scroll or search.
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align:top;padding:20px;border:1px solid #e4e4e4;border-radius:10px;background:#fff;">
+        <strong style="display:block;font-size:16px;color:#5b4caf;margin-bottom:6px;">Nothing hardcoded</strong>
         The list comes straight from your <code>res.lang</code> records. Install a
-        language and it shows up; archive it and it disappears. Nothing is hardcoded.
+        language and it appears; archive it and it is gone.
+      </td>
+      <td style="vertical-align:top;padding:20px;border:1px solid #e4e4e4;border-radius:10px;background:#fff;">
+        <strong style="display:block;font-size:16px;color:#5b4caf;margin-bottom:6px;">Built for long lists</strong>
+        Above ten languages a search box appears, filtering by name or by
+        code. The menu scrolls instead of running off the screen.
       </td>
     </tr>
     <tr>
-      <td style="vertical-align:top;padding:20px;border:1px solid #e4e4e4;border-radius:10px;background:#ffffff;">
-        <strong style="display:block;font-size:16px;color:#5b4caf;margin-bottom:6px;">Simple back end integration</strong>
-        A standard systray entry and two small ORM methods. No core patching,
-        no overridden views, no new models, no extra access rights.
+      <td style="vertical-align:top;padding:20px;border:1px solid #e4e4e4;border-radius:10px;background:#fff;">
+        <strong style="display:block;font-size:16px;color:#5b4caf;margin-bottom:6px;">Right-to-left ready</strong>
+        Arabic, Hebrew and friends work normally. The component never forces a
+        direction and uses logical CSS only, so Odoo stays in charge.
       </td>
-      <td style="vertical-align:top;padding:20px;border:1px solid #e4e4e4;border-radius:10px;background:#ffffff;">
-        <strong style="display:block;font-size:16px;color:#5b4caf;margin-bottom:6px;">Community + Enterprise</strong>
-        Built against Community APIs and depending only on <code>base</code> and
-        <code>web</code>, so it drops into either edition without changing the navbar theme.
-      </td>
-    </tr>
-    <tr>
-      <td style="vertical-align:top;padding:20px;border:1px solid #e4e4e4;border-radius:10px;background:#ffffff;">
-        <strong style="display:block;font-size:16px;color:#5b4caf;margin-bottom:6px;">Responsive and right-to-left ready</strong>
-        Icon only on phones, icon and language name on wide screens. Arabic and
-        other RTL languages are handled by Odoo itself &mdash; the component never
-        forces a direction and uses logical CSS properties only.
-      </td>
-      <td style="vertical-align:top;padding:20px;border:1px solid #e4e4e4;border-radius:10px;background:#ffffff;">
-        <strong style="display:block;font-size:16px;color:#5b4caf;margin-bottom:6px;">Odoo 17 / 18 / 19</strong>
-        A dedicated package per series, each using the native component API of
-        its Odoo release rather than runtime version detection.
+      <td style="vertical-align:top;padding:20px;border:1px solid #e4e4e4;border-radius:10px;background:#fff;">
+        <strong style="display:block;font-size:16px;color:#5b4caf;margin-bottom:6px;">Phone friendly</strong>
+        Icon only on small screens, icon and language name on wide ones. The
+        menu stays usable either way.
       </td>
     </tr>
   </table>
 
-  <h2 style="font-size:22px;color:#2b2b2b;margin:32px 0 16px;">What it looks like</h2>
-  <div style="border:1px solid #e4e4e4;border-radius:10px;overflow:hidden;background:#ffffff;">
-    <div style="background:#5b4caf;color:#ffffff;padding:10px 16px;font-size:14px;text-align:right;">
-      &#127760;&nbsp; English (US) &nbsp;&#9662;
-    </div>
-    <div style="padding:8px 0;">
-      <div style="padding:8px 16px;background:#f1eefb;font-weight:600;">&#127482;&#127480;&nbsp; English (US) <span style="float:right;">&#10003;</span></div>
-      <div style="padding:8px 16px;">&#127462;&#127466;&nbsp; &#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</div>
-      <div style="padding:8px 16px;">&#127465;&#127466;&nbsp; Deutsch</div>
-      <div style="padding:8px 16px;">&#127466;&#127480;&nbsp; Espa&ntilde;ol</div>
-      <div style="padding:8px 16px;">&#127467;&#127479;&nbsp; Fran&ccedil;ais</div>
-      <div style="padding:8px 16px;">&#127470;&#127481;&nbsp; Italiano</div>
-      <div style="padding:8px 16px;">&#127463;&#127479;&nbsp; Portugu&ecirc;s (BR)</div>
-    </div>
-  </div>
-  <p style="font-size:13px;color:#777;margin-top:8px;">
-    Flags are derived from the locale code using Unicode symbols; locales without a
-    country fall back to a neutral globe. The language name is always shown, so the
-    switcher stays readable even where a platform does not render flag emoji.
-  </p>
-
-  <h2 style="font-size:22px;color:#2b2b2b;margin:32px 0 16px;">How it works</h2>
-  <ol style="margin:0 0 24px;padding-left:20px;">
-    <li style="margin-bottom:8px;">Install at least two languages in Odoo.</li>
-    <li style="margin-bottom:8px;">Install this module &mdash; nothing else to configure.</li>
-    <li style="margin-bottom:8px;">Click the globe in the top bar and choose a language.</li>
-    <li style="margin-bottom:8px;">The server validates the choice, stores it on your own user record, and the web client reloads translated.</li>
-  </ol>
-  <p style="margin:0 0 32px;">
-    With more than ten active languages, a search box appears at the top of the
-    dropdown so you can filter by name or by code. With a single active language
-    the switcher hides itself, because there is nothing to switch to.
-  </p>
-
-  <div style="padding:24px;border-radius:12px;background:#f1eefb;border:1px solid #ded5f5;">
-    <h2 style="margin:0 0 8px;font-size:20px;color:#423685;">Security by design</h2>
+  <div style="margin:40px 0;padding:24px;border-radius:12px;background:#f1eefb;border:1px solid #ded5f5;">
+    <h2 style="margin:0 0 10px;font-size:22px;color:#423685;">Safe by design</h2>
+    <p style="margin:0 0 10px;">
+      The server endpoint accepts a language code and nothing else. There is no
+      user id parameter, so it can only ever write the language of the person
+      calling it &mdash; a user cannot change anybody else's.
+    </p>
     <p style="margin:0;">
-      The endpoint takes a language code and nothing else. There is no user id
-      parameter, so it can only ever write the language of the person calling it.
-      The code is validated server-side against the installed, active languages
-      before anything is stored, and the module never elevates privileges.
+      The code is validated server-side against the installed, active and
+      allowed languages before anything is stored, and the administrator
+      restriction is enforced on write rather than merely hidden in the menu.
+      No new access rights, no new models, no core patching, and no privilege
+      elevation anywhere in the module.
     </p>
   </div>
 
-  <p style="margin:32px 0 8px;font-size:13px;color:#777;">
-    Licensed under LGPL-3. This is an independent implementation built on public
-    Odoo APIs; it bundles no third-party code or artwork.
+  <h2 style="font-size:24px;color:#2b2b2b;margin:40px 0 12px;">Install and forget</h2>
+  <ol style="margin:0 0 24px;padding-left:20px;">
+    <li style="margin-bottom:8px;">Install at least two languages in Odoo.</li>
+    <li style="margin-bottom:8px;">Install this module &mdash; there is nothing to configure.</li>
+    <li style="margin-bottom:8px;">Click the globe in the top bar.</li>
+  </ol>
+  <p style="margin:0 0 32px;">
+    With a single active language the switcher hides itself, because there is
+    nothing to switch to. Uninstalling removes everything it added, including
+    its one configuration entry.
+  </p>
+
+  <div style="display:flex;flex-wrap:wrap;gap:12px;margin:0 0 32px;">
+    <span style="padding:8px 16px;border-radius:20px;background:#5b4caf;color:#fff;font-size:14px;">Odoo 17.0</span>
+    <span style="padding:8px 16px;border-radius:20px;background:#5b4caf;color:#fff;font-size:14px;">Odoo 18.0</span>
+    <span style="padding:8px 16px;border-radius:20px;background:#5b4caf;color:#fff;font-size:14px;">Odoo 19.0</span>
+    <span style="padding:8px 16px;border-radius:20px;background:#00c4b4;color:#fff;font-size:14px;">Community</span>
+    <span style="padding:8px 16px;border-radius:20px;background:#00c4b4;color:#fff;font-size:14px;">Enterprise</span>
+    <span style="padding:8px 16px;border-radius:20px;background:#eee;color:#444;font-size:14px;">No Enterprise dependency</span>
+  </div>
+
+  <p style="margin:0 0 8px;font-size:13px;color:#777;">
+    Independent implementation built on public Odoo APIs. Bundles no
+    third-party code or artwork; flags are Unicode characters, not images.
   </p>
 </section>
