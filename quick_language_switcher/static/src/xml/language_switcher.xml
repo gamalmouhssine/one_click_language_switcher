@@ -48,7 +48,7 @@
                     class="{
                         'o_quick_language_switcher_item': true,
                         'd-flex align-items-center': true,
-                        'active': lang.is_current,
+                        'active dropdown-item_active_noarrow': lang.is_current,
                         'disabled': !!switcherState.pendingCode
                     }"
                     dataset="{ langCode: lang.code }"

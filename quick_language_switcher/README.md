@@ -1,158 +1,162 @@
 # Quick Language Switcher
 
-## Overview
+**Change your Odoo back-end language in one click, from the navigation bar.**
 
-Quickly switch the current user's backend language directly from the Odoo
-navigation bar. A globe entry is added to the systray: open it, pick a
-language, and the web client reloads fully translated. No trip through
-**Settings → Users → Preferences** is required, and no administrator rights
-are involved.
+![Odoo](https://img.shields.io/badge/Odoo-17.0%20%7C%2018.0%20%7C%2019.0-714B67)
+![Editions](https://img.shields.io/badge/editions-Community%20%2B%20Enterprise-00c4b4)
+![Licence](https://img.shields.io/badge/licence-LGPL--3-blue)
+
+![Quick Language Switcher](static/description/banner.png)
+
+---
+
+## The problem
+
+Changing your interface language in Odoo means walking through
+**Settings → Users & Companies → Users → Preferences → Language**, saving, and
+reloading. Most users cannot even reach that menu: it needs administrator
+rights. So in practice, on a multilingual team, people either stay in a
+language they do not read well, or they ping an administrator.
+
+## The solution
+
+A globe in the top bar. Click it, pick a language, done.
+
+![The language dropdown](static/description/screenshot_dropdown.png)
+
+Any internal user can change **their own** language, instantly, with no
+special rights. Administrators are not involved.
+
+---
 
 ## Features
 
-* One-click language switching from the navbar
-* Dynamically detects the active Odoo languages — no hardcoded language list
-* Clear current-language indicator (check mark + screen-reader label)
-* Optional Unicode flag with a globe fallback for locales without a country
-* Search field appears automatically above ~10 languages
-* Command palette entries: <kbd>Ctrl</kbd>+<kbd>K</kbd> then a language name
-* Administrators may restrict which languages are offered (General Settings)
-* The three most recently used languages are pinned near the top
-* RTL friendly (Arabic, Hebrew, …) — Odoo decides the page direction, the addon never forces it
-* Responsive: icon only on small screens, icon + language name from `lg` up
-* Odoo Community and Odoo Enterprise compatible
-* Separate packages for Odoo 17.0, 18.0 and 19.0
-* No Enterprise dependency — depends only on `base`, `web` and `base_setup`
+### 🌐 One-click switching
+The current language is shown in the navbar. Open the menu, click another
+language, and the web client reloads fully translated. The current language is
+marked and pinned at the top of the list.
+
+### ⌨️ Command palette
+Press <kbd>Ctrl</kbd>+<kbd>K</kbd> and type a language name — no mouse needed.
+The switcher registers its own entries alongside Odoo's built-in commands.
+
+![Command palette entries](static/description/screenshot_command_palette.png)
+
+Before you type anything, only the handful of languages you actually alternate
+between are offered, so the palette stays readable on databases with many
+languages installed.
+
+### ⚙️ You decide what is offered
+**Settings → General Settings → Languages** lets an administrator restrict the
+switcher to the languages your teams actually need — useful when a database has
+fifteen languages installed for translation work but should only offer four.
+
+Leave the selection empty (the default) and every active language is offered,
+so nothing changes if you never touch it.
+
+### 🕘 Remembers your habits
+The three languages you switched to most recently are pinned just under the
+current one. Bilingual and trilingual users — the actual audience for this
+module — never scroll or search.
+
+### 🔎 Built for long lists
+Above about ten languages a search box appears at the top of the menu,
+filtering by language name **or** by code (`fr`, `pt_BR`, `arab`). The list
+scrolls inside the menu instead of running off the screen.
+
+### 🚩 Flags without the baggage
+Flags are derived from the locale code using Unicode characters — no image
+assets are shipped and nothing is copied from anywhere. Locales without a
+country, such as Arabic (`ar_001`), fall back to a neutral globe. The language
+name is always displayed, so the list stays readable even where a platform
+does not render flag emoji.
+
+### ↔️ Right-to-left ready
+Arabic, Hebrew and other RTL languages work normally. The component never
+forces a direction — Odoo decides — and its stylesheet uses logical CSS
+properties only, so it mirrors correctly.
+
+### 📱 Phone friendly
+Icon only on small screens, icon and language name from `lg` up. The menu
+stays usable at every width.
+
+### 🧹 Nothing hardcoded, nothing left behind
+The language list comes straight from your `res.lang` records: install a
+language and it appears, archive it and it is gone. Uninstalling removes
+everything the module added, including its single configuration entry.
+
+---
+
+## Requirements
+
+| | |
+| - | - |
+| Odoo | 17.0, 18.0 or 19.0 |
+| Edition | Community **or** Enterprise |
+| Depends on | `base`, `web`, `base_setup` — all Community modules |
+| Enterprise modules | none |
+
+At least **two active languages** are required for the switcher to appear —
+with only one there is nothing to switch to, so it hides itself.
 
 ## Installation
 
-1. Copy the `quick_language_switcher` directory into one of the directories
-   listed in your `addons_path`.
-2. Restart the Odoo server.
-3. Activate the developer mode, go to **Apps**, click **Update Apps List**.
-4. Search for *Quick Language Switcher* and click **Install**.
-
-Command line equivalent:
+1. Copy `quick_language_switcher` into your `addons_path`.
+2. Restart Odoo.
+3. **Apps → Update Apps List**, then search for *Quick Language Switcher* and install.
 
 ```bash
-./odoo-bin \
-  -d my_database \
-  --addons-path=addons,custom_addons \
-  -i quick_language_switcher \
-  --stop-after-init
+./odoo-bin -d my_db --addons-path=addons,/path/to/custom_addons \
+           -i quick_language_switcher --stop-after-init
 ```
 
-Upgrade:
-
-```bash
-./odoo-bin \
-  -d my_database \
-  --addons-path=addons,custom_addons \
-  -u quick_language_switcher \
-  --stop-after-init
-```
-
-Run the automated tests:
-
-```bash
-./odoo-bin \
-  -d my_database \
-  --addons-path=addons,custom_addons \
-  -i quick_language_switcher \
-  --test-enable \
-  --stop-after-init
-```
+> Adding or removing asset files in the manifest needs an Odoo **restart**, not
+> just a module upgrade: Odoo caches each manifest per process.
 
 ## Usage
 
-1. Install at least two Odoo languages (**Settings → Translations → Languages**,
-   or **Settings → Add Languages**).
-2. Install this addon.
-3. Open the backend.
-4. Click the globe in the top-right navigation bar.
-5. Choose a language.
-6. The web client reloads in that language.
-
-With a single active language the switcher hides itself: there is nothing to
-switch to.
-
-## Compatibility
-
-| Odoo series | Package directory | Manifest version |
-| ----------- | ----------------- | ---------------- |
-| 17.0        | `17.0/quick_language_switcher/` | `17.0.1.0.0` |
-| 18.0        | `18.0/quick_language_switcher/` | `18.0.1.0.0` |
-| 19.0        | `19.0/quick_language_switcher/` | `19.0.1.0.0` |
-
-Each package is a standalone addon: install the one matching your Odoo
-series. They are **not** interchangeable, because the OWL `Dropdown`
-component API changed between 17.0 and 18.0. See `PORTING.md` at the root of the
-distribution for the exact list of differences.
-
-Both Community and Enterprise are supported. The addon is written against
-Community APIs only, declares no Enterprise dependency, and adds a standard
-systray entry, so the Enterprise navbar keeps its own styling.
+1. Install at least two languages (**Settings → Translations → Languages**).
+2. Open the back end.
+3. Click the globe in the top-right bar, or press <kbd>Ctrl</kbd>+<kbd>K</kbd>.
+4. Pick a language — the page reloads in it.
 
 ## Security
 
-The two RPC endpoints live on `res.users` and act **only** on the
-authenticated user:
+Two RPC endpoints on `res.users`, both acting **only** on the authenticated
+user:
 
-* `quick_language_get_available()` reads active `res.lang` records. Read
-  access on `res.lang` is granted to internal and portal users by `base`, so
-  no privilege elevation (`sudo()`) is used anywhere in this module.
-* `quick_language_set(lang_code)` validates that `lang_code` is a string
-  matching an existing **active** language *and* one the administrator allows,
-  then writes `lang` on
-  `res.users.browse(self.env.uid)`. There is no `user_id` argument, so
-  another user's record can never be targeted. The write goes through the
-  caller's own rights: Odoo's `res.users.write` recognises a user editing
-  their own record and only accepts the fields of `SELF_WRITEABLE_FIELDS`,
-  of which `lang` is one.
+* `quick_language_get_available()` — lists active `res.lang` records.
+* `quick_language_set(lang_code)` — validates that the code is a string
+  matching an existing, active and administrator-allowed language, then writes
+  `lang` on `res.users.browse(self.env.uid)`.
 
-The allow-list is enforced in `quick_language_set` and not only when building
-the list, so a crafted RPC cannot select an excluded language.
+There is **no `user_id` argument**, so another user's record can never be
+targeted. The write goes through the caller's own rights: Odoo's
+`res.users.write` recognises a user editing their own record and accepts only
+the fields listed in `SELF_WRITEABLE_FIELDS`, of which `lang` is one. The
+administrator allow-list is enforced when writing, not merely when building the
+menu, so a crafted RPC cannot select an excluded language.
 
-An invalid, unknown, inactive or excluded code raises a `UserError`; the client shows a
-notification and does **not** reload, so the previous language stays in place.
+No new models, no new access rights, no core patching, and no `sudo()` beyond a
+single read of one configuration key.
 
-## Manual test matrix
+## Testing
 
-Only tick a cell after actually running the check on that edition.
+```bash
+./odoo-bin -d my_db --addons-path=addons,/path/to/custom_addons \
+           -i quick_language_switcher --test-enable \
+           --test-tags=/quick_language_switcher --stop-after-init
+```
 
-| Test             | Odoo 17 CE | Odoo 17 EE | Odoo 18 CE | Odoo 18 EE | Odoo 19 CE | Odoo 19 EE |
-| ---------------- | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- |
-| Install          | ☐          | ☐          | ☐          | ☐          | ☐          | ☐          |
-| Navbar rendered  | ☐          | ☐          | ☐          | ☐          | ☐          | ☐          |
-| Languages loaded | ☐          | ☐          | ☐          | ☐          | ☐          | ☐          |
-| Switch EN → FR   | ☐          | ☐          | ☐          | ☐          | ☐          | ☐          |
-| Switch FR → EN   | ☐          | ☐          | ☐          | ☐          | ☐          | ☐          |
-| Switch EN → AR   | ☐          | ☐          | ☐          | ☐          | ☐          | ☐          |
-| RTL after reload | ☐          | ☐          | ☐          | ☐          | ☐          | ☐          |
-| Mobile           | ☐          | ☐          | ☐          | ☐          | ☐          | ☐          |
-| Normal user      | ☐          | ☐          | ☐          | ☐          | ☐          | ☐          |
-| Administrator    | ☐          | ☐          | ☐          | ☐          | ☐          | ☐          |
+23 backend tests cover the endpoints, the security boundary, the allow-list and
+the uninstall cleanup.
 
-## Notes and known limitations
+## Support
 
-* **Flags are cosmetic.** They are derived from the region subtag of the
-  locale code (`pt_BR` → 🇧🇷) using Unicode regional indicator symbols; no
-  image asset is shipped. Locales without a two-letter region (`ar_001`,
-  `sr@latin`, `en`) fall back to a neutral globe icon. Windows renders
-  regional indicators as two letters rather than a flag — the switcher stays
-  fully usable either way, since the language *name* is always displayed.
-* **One RPC per web client session.** The language list is fetched in
-  `onWillStart` and cached in the component state. Opening and closing the
-  dropdown issues no further request; switching language reloads the client,
-  which naturally refreshes the cache.
-* **Recent languages** are stored in `localStorage` and hold nothing but
-  language codes. Corrupt, disabled or full storage degrades silently to the
-  plain alphabetical list.
-* **Adding asset files requires a server restart.** Odoo caches each module's
-  manifest per process, so a module upgrade alone will not pick up newly
-  listed JavaScript or SCSS files.
-* See `ROADMAP.md` for the features that were considered and rejected, and why.
+Issues and questions:
+<https://github.com/gamalmouhssine/quick_language_switcher/issues>
 
-## License
+## Licence
 
-LGPL-3. See the `LICENSE` file.
+LGPL-3. Independent implementation built on public Odoo APIs; bundles no
+third-party code or artwork.
