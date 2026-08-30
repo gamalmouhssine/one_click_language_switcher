@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
 
-    <t t-name="quick_language_switcher.LanguageSwitcher">
-        <div t-if="isAvailable" class="o_quick_language_switcher bg-inherit">
+    <t t-name="one_click_language_switcher.LanguageSwitcher">
+        <div t-if="isAvailable" class="o_one_click_language_switcher bg-inherit">
             <DropdownGroup group="'web-navbar-group'">
                 <Dropdown
                     position="'bottom-end'"
-                    menuClass="'o_quick_language_switcher_menu'"
+                    menuClass="'o_one_click_language_switcher_menu'"
                     disabled="!!switcherState.pendingCode"
                     onStateChanged.bind="onDropdownStateChanged"
                 >
@@ -28,7 +28,7 @@
                     </button>
 
                     <t t-set-slot="content">
-                        <div t-if="showSearch" class="o_quick_language_switcher_search px-2 pb-2">
+                        <div t-if="showSearch" class="o_one_click_language_switcher_search px-2 pb-2">
                             <div class="form-control d-flex align-items-center py-1" role="search">
                                 <i class="oi oi-search me-2" role="img" aria-hidden="true"/>
                                 <input
@@ -44,11 +44,11 @@
                             </div>
                         </div>
 
-                        <div class="o_quick_language_switcher_list">
+                        <div class="o_one_click_language_switcher_list">
                             <DropdownItem
                                 t-foreach="displayedLanguages" t-as="lang" t-key="lang.code"
                                 class="{
-                                    'o_quick_language_switcher_item': true,
+                                    'o_one_click_language_switcher_item': true,
                                     'd-flex align-items-center': true,
                                     'active dropdown-item_active_noarrow': lang.is_current,
                                     'disabled': !!switcherState.pendingCode
@@ -59,7 +59,7 @@
                                 }"
                                 onSelected="() => this.onLanguageSelected(lang)"
                             >
-                                <span class="o_quick_language_switcher_flag me-2" aria-hidden="true">
+                                <span class="o_one_click_language_switcher_flag me-2" aria-hidden="true">
                                     <t t-if="lang.flag" t-esc="lang.flag"/>
                                     <i t-else="" class="fa fa-globe text-muted"/>
                                 </span>

@@ -1,4 +1,4 @@
-# Quick Language Switcher
+# One-Click Language Switcher
 
 Change your Odoo back-end language in one click, from the navigation bar.
 
@@ -11,11 +11,11 @@ own language, and only their own.
 ![editions](https://img.shields.io/badge/editions-Community%20%2B%20Enterprise-00c4b4)
 ![licence](https://img.shields.io/badge/licence-LGPL--3-blue)
 
-![Quick Language Switcher](quick_language_switcher/static/description/banner.png)
+![One-Click Language Switcher](one_click_language_switcher/static/description/banner.png)
 
-![The language dropdown](quick_language_switcher/static/description/screenshot_dropdown.png)
+![The language dropdown](one_click_language_switcher/static/description/screenshot_dropdown.png)
 
-![Command palette](quick_language_switcher/static/description/screenshot_command_palette.png)
+![Command palette](one_click_language_switcher/static/description/screenshot_command_palette.png)
 
 ## Branches
 
@@ -47,10 +47,10 @@ interchangeable, because the OWL `Dropdown` component API changed between
 ## Install
 
 ```bash
-git clone -b 19.0 https://github.com/gamalmouhssine/quick_language_switcher.git
-cp -r quick_language_switcher/quick_language_switcher /path/to/custom_addons/
+git clone -b 19.0 https://github.com/gamalmouhssine/one_click_language_switcher.git
+cp -r one_click_language_switcher/one_click_language_switcher /path/to/custom_addons/
 ./odoo-bin -d my_db --addons-path=addons,/path/to/custom_addons \
-           -i quick_language_switcher --stop-after-init
+           -i one_click_language_switcher --stop-after-init
 ```
 
 Then open the back end and click the globe. With a single active language the
@@ -79,8 +79,8 @@ cannot select an excluded language.
 
 ```bash
 ./odoo-bin -d my_db --addons-path=addons,/path/to/custom_addons \
-           -i quick_language_switcher --test-enable \
-           --test-tags=/quick_language_switcher --stop-after-init
+           -i one_click_language_switcher --test-enable \
+           --test-tags=/one_click_language_switcher --stop-after-init
 ```
 
 23 backend tests covering the endpoints, the security boundary and the

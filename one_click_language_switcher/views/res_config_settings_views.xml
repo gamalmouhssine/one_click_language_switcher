@@ -8,11 +8,11 @@
         <field name="arch" type="xml">
             <xpath expr="//block[@name='languages_setting_container']" position="inside">
                 <setting
-                    id="quick_language_switcher_setting"
-                    string="Quick Language Switcher"
+                    id="one_click_language_switcher_setting"
+                    string="One-Click Language Switcher"
                     help="Choose which languages the navbar switcher offers. Leave empty to offer every active language."
                 >
-                    <field name="quick_language_allowed_lang_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                    <field name="one_click_language_allowed_lang_ids" widget="many2many_tags" options="{'no_create': True}"/>
                 </setting>
             </xpath>
         </field>

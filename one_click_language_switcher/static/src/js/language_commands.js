@@ -19,9 +19,9 @@ const PALETTE_PREVIEW_LIMIT = 3;
  * The provider is asynchronous, which the palette supports; it reuses the
  * service cache, so opening the palette issues no additional RPC.
  */
-registry.category("command_provider").add("quick_language_switcher", {
+registry.category("command_provider").add("one_click_language_switcher", {
     async provide(env, options = {}) {
-        const switcher = env.services.quick_language_switcher;
+        const switcher = env.services.one_click_language_switcher;
         const languages = await switcher.loadLanguages();
         if (languages.length < 2) {
             return [];
