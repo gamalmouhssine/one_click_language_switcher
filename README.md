@@ -8,7 +8,14 @@ and no administrator rights required — every internal user can change their
 own language, and only their own.
 
 ![series](https://img.shields.io/badge/Odoo-17.0%20%7C%2018.0%20%7C%2019.0-714B67)
+![editions](https://img.shields.io/badge/editions-Community%20%2B%20Enterprise-00c4b4)
 ![licence](https://img.shields.io/badge/licence-LGPL--3-blue)
+
+![Quick Language Switcher](quick_language_switcher/static/description/banner.png)
+
+![The language dropdown](quick_language_switcher/static/description/screenshot_dropdown.png)
+
+![Command palette](quick_language_switcher/static/description/screenshot_command_palette.png)
 
 ## Branches
 
