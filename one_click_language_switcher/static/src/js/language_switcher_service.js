@@ -4,7 +4,7 @@ import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 
 /** localStorage key holding the codes most recently picked on this browser. */
-const RECENT_KEY = "quick_language_switcher.recent";
+const RECENT_KEY = "one_click_language_switcher.recent";
 
 /** How many recently used languages are pinned near the top of the list. */
 const RECENT_LIMIT = 3;
@@ -110,7 +110,7 @@ export const quickLanguageSwitcherService = {
         function loadLanguages() {
             if (!languagesProm) {
                 languagesProm = orm
-                    .call("res.users", "quick_language_get_available", [])
+                    .call("res.users", "one_click_language_get_available", [])
                     .then((languages) => {
                         state.languages = sortByRecency(
                             languages.map((lang) => ({ ...lang, flag: flagEmoji(lang.code) }))
@@ -144,7 +144,7 @@ export const quickLanguageSwitcherService = {
             }
             state.pendingCode = code;
             try {
-                await orm.call("res.users", "quick_language_set", [code]);
+                await orm.call("res.users", "one_click_language_set", [code]);
             } catch {
                 state.pendingCode = "";
                 notification.add(_t("Could not change language. Please try again."), {
@@ -161,4 +161,4 @@ export const quickLanguageSwitcherService = {
     },
 };
 
-registry.category("services").add("quick_language_switcher", quickLanguageSwitcherService);
+registry.category("services").add("one_click_language_switcher", quickLanguageSwitcherService);

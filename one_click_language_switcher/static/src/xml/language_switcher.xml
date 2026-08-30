@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
 
-    <t t-name="quick_language_switcher.LanguageSwitcher">
+    <t t-name="one_click_language_switcher.LanguageSwitcher">
         <Dropdown
             t-if="isAvailable"
-            class="'o_quick_language_switcher'"
+            class="'o_one_click_language_switcher'"
             togglerClass="'py-1 py-lg-0'"
-            menuClass="'o_quick_language_switcher_menu'"
+            menuClass="'o_one_click_language_switcher_menu'"
             position="'bottom-end'"
             title="toggleTitle"
             disabled="!!switcherState.pendingCode"
@@ -26,7 +26,7 @@
                 <span class="visually-hidden" t-esc="toggleTitle"/>
             </t>
 
-            <div t-if="showSearch" class="o_quick_language_switcher_search px-2 pb-2">
+            <div t-if="showSearch" class="o_one_click_language_switcher_search px-2 pb-2">
                 <div class="form-control d-flex align-items-center py-1" role="search">
                     <i class="oi oi-search me-2" role="img" aria-hidden="true"/>
                     <input
@@ -42,11 +42,11 @@
                 </div>
             </div>
 
-            <div class="o_quick_language_switcher_list">
+            <div class="o_one_click_language_switcher_list">
                 <DropdownItem
                     t-foreach="displayedLanguages" t-as="lang" t-key="lang.code"
                     class="{
-                        'o_quick_language_switcher_item': true,
+                        'o_one_click_language_switcher_item': true,
                         'd-flex align-items-center': true,
                         'active dropdown-item_active_noarrow': lang.is_current,
                         'disabled': !!switcherState.pendingCode
@@ -54,7 +54,7 @@
                     dataset="{ langCode: lang.code }"
                     onSelected="() => this.onLanguageSelected(lang)"
                 >
-                    <span class="o_quick_language_switcher_flag me-2" aria-hidden="true">
+                    <span class="o_one_click_language_switcher_flag me-2" aria-hidden="true">
                         <t t-if="lang.flag" t-esc="lang.flag"/>
                         <i t-else="" class="fa fa-globe text-muted"/>
                     </span>

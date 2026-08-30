@@ -1,4 +1,4 @@
-# Part of Quick Language Switcher. See LICENSE file for full copyright and licensing details.
+# Part of One-Click Language Switcher. See LICENSE file for full copyright and licensing details.
 
 from . import models
 

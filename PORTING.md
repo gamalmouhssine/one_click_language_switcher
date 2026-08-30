@@ -1,4 +1,4 @@
-# Quick Language Switcher — differences between the 17.0, 18.0 and 19.0 packages
+# One-Click Language Switcher — differences between the 17.0, 18.0 and 19.0 packages
 
 Everything in this module is shared between the three Odoo series except the
 points listed below. Each package targets the **native API of its own release**;
@@ -27,7 +27,7 @@ Baseline for this document: the **19.0** package.
 | `views/res_config_settings_views.xml`    | identical    | identical    |
 | `static/src/xml/language_switcher.xml`   | rewritten    | identical    |
 | `static/description/*`, `README.md`      | identical    | identical    |
-| `i18n/quick_language_switcher.pot`       | header only  | header only  |
+| `i18n/one_click_language_switcher.pot`       | header only  | header only  |
 
 **18.0 and 19.0 are byte-identical apart from the manifest `version` string.**
 Every other difference below concerns 17.0 only.
@@ -173,7 +173,7 @@ code:
   `//block[@name='languages_setting_container']` anchor in 17.0, 18.0 and
   19.0, so one settings view inherit serves all three.
 
-## 5. `i18n/quick_language_switcher.pot`
+## 5. `i18n/one_click_language_switcher.pot`
 
 Same entries in all three packages; only the `Project-Id-Version` header
 mentions the matching Odoo series. The template was produced with Odoo's own

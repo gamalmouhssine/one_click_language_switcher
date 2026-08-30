@@ -1,4 +1,4 @@
-# Part of Quick Language Switcher. See LICENSE file for full copyright and licensing details.
+# Part of One-Click Language Switcher. See LICENSE file for full copyright and licensing details.
 
 from odoo import _, api, models
 from odoo.exceptions import UserError
@@ -17,7 +17,7 @@ class ResUsers(models.Model):
     _inherit = "res.users"
 
     @api.model
-    def _quick_language_allowed_codes(self):
+    def _one_click_language_allowed_codes(self):
         """Return the language codes an administrator restricted the switcher to.
 
         An empty set means "no restriction": every active language is offered,
@@ -33,7 +33,7 @@ class ResUsers(models.Model):
         return {code.strip() for code in param.split(",") if code.strip()}
 
     @api.model
-    def quick_language_get_available(self):
+    def one_click_language_get_available(self):
         """Return the languages the current user is allowed to switch to.
 
         Only *active* languages are returned, which in Odoo means the
@@ -52,7 +52,7 @@ class ResUsers(models.Model):
         """
         current_code = self.env.user.lang
         languages = self.env["res.lang"].search([("active", "=", True)])
-        allowed = self._quick_language_allowed_codes()
+        allowed = self._one_click_language_allowed_codes()
         if allowed:
             # The language currently in use is always listed, even when an
             # administrator removed it from the offered set: the user has to be
@@ -78,7 +78,7 @@ class ResUsers(models.Model):
         return entries
 
     @api.model
-    def quick_language_set(self, lang_code):
+    def one_click_language_set(self, lang_code):
         """Set the language of the **currently authenticated** user.
 
         The target user is always ``self.env.uid``; the caller cannot pass a
@@ -101,7 +101,7 @@ class ResUsers(models.Model):
                 _("The language %s is not installed or not active.", lang_code.strip())
             )
 
-        allowed = self._quick_language_allowed_codes()
+        allowed = self._one_click_language_allowed_codes()
         user = self.env["res.users"].browse(self.env.uid)
         if allowed and lang.code not in allowed and lang.code != user.lang:
             # Enforced here and not only in the getter: the restriction is a

@@ -14,17 +14,17 @@ const SEARCH_THRESHOLD = 10;
  * Systray entry letting the current user switch the backend language.
  *
  * All of the data and the switching itself live in the
- * `quick_language_switcher` service, which caches the language list for the
+ * `one_click_language_switcher` service, which caches the language list for the
  * whole web client session: opening and closing the dropdown never triggers
  * an extra RPC.
  */
 export class LanguageSwitcher extends Component {
-    static template = "quick_language_switcher.LanguageSwitcher";
+    static template = "one_click_language_switcher.LanguageSwitcher";
     static components = { Dropdown, DropdownItem };
     static props = {};
 
     setup() {
-        this.switcher = useService("quick_language_switcher");
+        this.switcher = useService("one_click_language_switcher");
         this.switcherState = useState(this.switcher.state);
         this.state = useState({ search: "" });
         this.searchInputRef = useRef("searchInput");
@@ -93,7 +93,7 @@ export class LanguageSwitcher extends Component {
     }
 
     /**
-     * @param {Object} lang entry coming from `quick_language_get_available`
+     * @param {Object} lang entry coming from `one_click_language_get_available`
      */
     onLanguageSelected(lang) {
         if (lang.is_current) {
@@ -105,6 +105,6 @@ export class LanguageSwitcher extends Component {
 
 export const systrayItem = { Component: LanguageSwitcher };
 
-registry.category("systray").add("quick_language_switcher.LanguageSwitcher", systrayItem, {
+registry.category("systray").add("one_click_language_switcher.LanguageSwitcher", systrayItem, {
     sequence: 2,
 });

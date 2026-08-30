@@ -1,0 +1,122 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* one_click_language_switcher
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-30 13:08+0000\n"
+"PO-Revision-Date: 2026-08-30 13:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: one_click_language_switcher
+#. odoo-javascript
+#: code:addons/one_click_language_switcher/static/src/js/language_switcher.js:0
+msgid "Change language"
+msgstr ""
+
+#. module: one_click_language_switcher
+#: model_terms:ir.ui.view,arch_db:one_click_language_switcher.res_config_settings_view_form
+msgid ""
+"Choose which languages the navbar switcher offers. Leave empty to offer "
+"every active language."
+msgstr ""
+
+#. module: one_click_language_switcher
+#: model:ir.model,name:one_click_language_switcher.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: one_click_language_switcher
+#. odoo-javascript
+#: code:addons/one_click_language_switcher/static/src/js/language_switcher_service.js:0
+msgid "Could not change language. Please try again."
+msgstr ""
+
+#. module: one_click_language_switcher
+#. odoo-javascript
+#: code:addons/one_click_language_switcher/static/src/js/language_switcher.js:0
+msgid "Current language"
+msgstr ""
+
+#. module: one_click_language_switcher
+#: model:ir.model.fields,field_description:one_click_language_switcher.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:one_click_language_switcher.field_res_users__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: one_click_language_switcher
+#: model:ir.model.fields,field_description:one_click_language_switcher.field_res_config_settings__id
+#: model:ir.model.fields,field_description:one_click_language_switcher.field_res_users__id
+msgid "ID"
+msgstr ""
+
+#. module: one_click_language_switcher
+#. odoo-javascript
+#: code:addons/one_click_language_switcher/static/src/js/language_switcher.js:0
+msgid "Language"
+msgstr ""
+
+#. module: one_click_language_switcher
+#: model:ir.model.fields,field_description:one_click_language_switcher.field_res_config_settings__one_click_language_allowed_lang_ids
+msgid "Languages offered by the switcher"
+msgstr ""
+
+#. module: one_click_language_switcher
+#: model:ir.model.fields,help:one_click_language_switcher.field_res_config_settings__one_click_language_allowed_lang_ids
+msgid ""
+"Languages the One-Click Language Switcher offers to users. Leave empty to offer "
+"every active language."
+msgstr ""
+
+#. module: one_click_language_switcher
+#. odoo-javascript
+#: code:addons/one_click_language_switcher/static/src/js/language_switcher.js:0
+msgid "No language found"
+msgstr ""
+
+#. module: one_click_language_switcher
+#. odoo-python
+#: code:addons/one_click_language_switcher/models/res_users.py:0
+msgid "No language was selected."
+msgstr ""
+
+#. module: one_click_language_switcher
+#: model_terms:ir.ui.view,arch_db:one_click_language_switcher.res_config_settings_view_form
+msgid "One-Click Language Switcher"
+msgstr ""
+
+#. module: one_click_language_switcher
+#. odoo-javascript
+#: code:addons/one_click_language_switcher/static/src/js/language_switcher.js:0
+msgid "Search language..."
+msgstr ""
+
+#. module: one_click_language_switcher
+#. odoo-javascript
+#: code:addons/one_click_language_switcher/static/src/js/language_commands.js:0
+msgid "Switch language to %s"
+msgstr ""
+
+#. module: one_click_language_switcher
+#. odoo-python
+#: code:addons/one_click_language_switcher/models/res_users.py:0
+msgid "The language %s is not installed or not active."
+msgstr ""
+
+#. module: one_click_language_switcher
+#. odoo-python
+#: code:addons/one_click_language_switcher/models/res_users.py:0
+msgid "The language %s is not offered on this database."
+msgstr ""
+
+#. module: one_click_language_switcher
+#: model:ir.model,name:one_click_language_switcher.model_res_users
+msgid "User"
+msgstr ""
