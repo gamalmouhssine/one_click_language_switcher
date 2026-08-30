@@ -1,0 +1,34 @@
+// Part of Quick Language Switcher.
+//
+// Deliberately minimal: layout and colours come from Bootstrap and from the
+// navbar/dropdown rules already shipped by `web`, so the component follows the
+// active theme (Community, Enterprise, light and dark) without any override.
+// Only logical properties are used, which keeps the component RTL-safe.
+
+.o_quick_language_switcher {
+    // Keep the emoji/globe column aligned whatever the width of the glyph.
+    .o_quick_language_switcher_flag {
+        display: inline-block;
+        min-inline-size: 1.5em;
+        text-align: center;
+        line-height: 1;
+    }
+}
+
+.o_quick_language_switcher_menu {
+    min-inline-size: 13rem;
+    max-inline-size: 20rem;
+
+    .o_quick_language_switcher_list {
+        // Long language lists stay inside the viewport and scroll.
+        max-block-size: 16rem;
+        overflow-y: auto;
+    }
+
+    // While a switch is in flight the whole list stops reacting to clicks,
+    // which prevents a second concurrent language write.
+    .o_quick_language_switcher_item.disabled {
+        pointer-events: none;
+        opacity: .5;
+    }
+}

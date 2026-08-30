@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="quick_language_switcher.LanguageSwitcher">
+        <div t-if="isAvailable" class="o_quick_language_switcher bg-inherit">
+            <DropdownGroup group="'web-navbar-group'">
+                <Dropdown
+                    position="'bottom-end'"
+                    menuClass="'o_quick_language_switcher_menu'"
+                    disabled="!!switcherState.pendingCode"
+                    onStateChanged.bind="onDropdownStateChanged"
+                >
+                    <button
+                        class="py-1 py-lg-0"
+                        t-att-title="toggleTitle"
+                        t-att-aria-label="toggleTitle"
+                    >
+                        <i
+                            class="fa fa-fw"
+                            t-att-class="switcherState.pendingCode ? 'fa-circle-o-notch fa-spin' : 'fa-globe'"
+                            role="img"
+                            aria-hidden="true"
+                        />
+                        <span
+                            class="oe_topbar_name d-none d-lg-inline-block ms-1 text-truncate align-middle"
+                            t-esc="currentLabel"
+                        />
+                    </button>
+
+                    <t t-set-slot="content">
+                        <div t-if="showSearch" class="o_quick_language_switcher_search px-2 pb-2">
+                            <div class="form-control d-flex align-items-center py-1" role="search">
+                                <i class="oi oi-search me-2" role="img" aria-hidden="true"/>
+                                <input
+                                    type="text"
+                                    class="o_input flex-grow-1 border-0 o-navigable"
+                                    role="searchbox"
+                                    t-ref="searchInput"
+                                    t-att-value="state.search"
+                                    t-att-placeholder="searchPlaceholder"
+                                    t-att-aria-label="searchPlaceholder"
+                                    t-on-input="onSearchInput"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="o_quick_language_switcher_list">
+                            <DropdownItem
+                                t-foreach="displayedLanguages" t-as="lang" t-key="lang.code"
+                                class="{
+                                    'o_quick_language_switcher_item': true,
+                                    'd-flex align-items-center': true,
+                                    'active': lang.is_current,
+                                    'disabled': !!switcherState.pendingCode
+                                }"
+                                attrs="{
+                                    'data-lang-code': lang.code,
+                                    'aria-current': lang.is_current ? 'true' : 'false'
+                                }"
+                                onSelected="() => this.onLanguageSelected(lang)"
+                            >
+                                <span class="o_quick_language_switcher_flag me-2" aria-hidden="true">
+                                    <t t-if="lang.flag" t-esc="lang.flag"/>
+                                    <i t-else="" class="fa fa-globe text-muted"/>
+                                </span>
+                                <span class="flex-grow-1 text-truncate" t-esc="lang.name"/>
+                                <t t-if="lang.is_current">
+                                    <i class="fa fa-check ms-2 small" aria-hidden="true"/>
+                                    <span class="visually-hidden" t-esc="currentLabelForScreenReader"/>
+                                </t>
+                            </DropdownItem>
+
+                            <div
+                                t-if="!displayedLanguages.length"
+                                class="text-muted px-3 py-2"
+                                t-esc="noResultLabel"
+                            />
+                        </div>
+                    </t>
+                </Dropdown>
+            </DropdownGroup>
+        </div>
+    </t>
+
+</templates>
