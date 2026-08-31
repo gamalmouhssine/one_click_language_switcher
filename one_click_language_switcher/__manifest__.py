@@ -21,8 +21,6 @@ without going through Settings > Users > Preferences.
     "author": "gamalmouhssine",
     "website": "https://github.com/gamalmouhssine/one_click_language_switcher",
     "license": "LGPL-3",
-    "price": 19.99,
-    "currency": "EUR",
     # ``base_setup`` owns the General Settings form the allow-list is
     # added to. It is a Community module present in every database;
     # no Enterprise dependency is introduced.
